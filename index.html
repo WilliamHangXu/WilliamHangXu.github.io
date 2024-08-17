@@ -42,14 +42,16 @@
         var navLinks = document.querySelector('.nav-links');
         navLinks.classList.toggle('active');
     }
+    
     // Auto-collapse navbar when a link is clicked
-document.querySelectorAll('.nav-links li a').forEach(link => {
-    link.addEventListener('click', () => {
-        var navLinks = document.querySelector('.nav-links');
-        navLinks.classList.remove('active'); // Collapse the navbar
+    document.querySelectorAll('.nav-links li a').forEach(link => {
+        link.addEventListener('click', () => {
+            var navLinks = document.querySelector('.nav-links');
+            navLinks.classList.remove('active'); // Collapse the navbar
+        });
     });
-});
     </script>
+    
   
 
     <div style="height: 20px;"></div> <!-- This adds 20px of space below the navbar -->

@@ -139,16 +139,19 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  height: 60px; /* Fixed height for the navbar */
   background-color: white;
   z-index: 1000;
-  border-bottom: 1px solid #eaeaea;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #eaeaea;
+  display: flex;
+  align-items: center; /* Vertically center the content */
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 0 20px;
 }
 
@@ -162,6 +165,8 @@ nav {
   margin: 0;
   padding: 0;
   display: flex;
+  height: 100%; /* Make sure nav-links span the full height of the navbar */
+  align-items: center; /* Center links vertically within the navbar */
 }
 
 .nav-links li {
@@ -172,8 +177,8 @@ nav {
   display: block;
   color: #333;
   text-decoration: none;
-  padding: 15px 10px;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 10px 0; /* Control padding to avoid affecting the navbar height */
+  line-height: 40px; /* Set line height to align text vertically */
 }
 
 .nav-links li a:hover {
@@ -192,15 +197,16 @@ nav {
 @media (max-width: 768px) {
   .nav-links {
       display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #f9f9f9; /* Light background color for the expanded menu */
+      flex-direction: column; /* Ensure the menu expands vertically */
+      width: 50%; /* Make the menu span only the right half */
+      height: auto; /* Allow the height to expand based on content */
+      background-color: white; /* Add white background */
       position: absolute;
-      top: 60px; /* Adjust based on your navbar height */
-      left: 0;
-      padding: 10px 0; /* Add padding around the menu */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow to make it stand out */
-      border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+      top: 61px; /* Adjust based on your navbar height */
+      right: 0;
+      padding: 0;
+      border-top: 1px solid #eaeaea; /* Optional: Top border to separate from navbar */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
   }
 
   .nav-links.active {
@@ -209,22 +215,35 @@ nav {
 
   .nav-links li {
       text-align: center;
-      margin: 10px 0;
+      margin: 0;
+      padding: 0px 20px; /* Adjust padding for spacing */
+      border-bottom: 1px solid #eaeaea; /* Line separating the buttons */
+      width: 100%; /* Ensure li spans the full width of nav-links */
+      box-sizing: border-box;
+  }
+
+  .nav-links li:last-child {
+      border-bottom: none; /* Remove the bottom border for the last item */
   }
 
   .nav-links li a {
-      padding: 15px 10px; /* Restore some padding for better spacing */
-      color: #555; /* Slightly lighter color */
-      background-color: white; /* White background for the links */
-      border-radius: 5px; /* Rounded corners for links */
-      margin: 5px 20px; /* Space between links */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for links */
-      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 10px 0; /* Adjust padding to reduce the height of the link */
+      color: #333;
+      background-color: transparent;
+      border-radius: 0;
+      margin: 0;
+      box-shadow: none; /* Remove any shadow or special effects */
+      transition: none; /* Remove hover transition effects */
+      width: 100%; /* Ensure the link spans the full width of the container */
   }
 
+  .nav-links li a:active {
+    color: #007acc; /* Change text color to blue when clicked */
+}
+
   .nav-links li a:hover {
-      background-color: #007acc; /* Change background color on hover */
-      color: white; /* Change text color on hover */
+      color: #007acc; /* Remove hover color change */
+      border-bottom: none; /* Remove border-bottom on hover */
   }
 
   .hamburger {
