@@ -15,7 +15,7 @@
   <body>
     
     <!-- Navigation Bar -->
-    <nav>
+    <!-- <nav>
       <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#research">Research</a></li>
@@ -23,7 +23,34 @@
           <li><a href="#coursework">Coursework</a></li>
           <li><a href="#misc">Miscellaneous</a></li>
       </ul>
-    </nav>
+    </nav> -->
+    <nav>
+      <div class="nav-container">
+          <div class="logo">Hang Xu</div> <!-- Optional: Add a logo or brand name -->
+          <div class="hamburger" onclick="toggleMenu()">&#9776;</div> <!-- Hamburger icon -->
+          <ul class="nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#research">Research</a></li>
+              <li><a href="#project">Project</a></li>
+              <li><a href="#coursework">Coursework</a></li>
+              <li><a href="#misc">Misc</a></li>
+          </ul>
+      </div>
+  </nav>
+  <script>
+    function toggleMenu() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+    // Auto-collapse navbar when a link is clicked
+document.querySelectorAll('.nav-links li a').forEach(link => {
+    link.addEventListener('click', () => {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.remove('active'); // Collapse the navbar
+    });
+});
+    </script>
+  
 
     <div style="height: 20px;"></div> <!-- This adds 20px of space below the navbar -->
     
@@ -97,9 +124,7 @@
                   <span>Soft Robot Control with Reinforcement Learning</span>
                 </a>
                 
-                <p>
-                Neural fields let you recover editable UV mappings for the challenging geometries produced by NeRF-like models.
-                </p>
+                
               </td>
             </tr>
           </tbody></table>
