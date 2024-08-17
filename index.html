@@ -13,6 +13,26 @@
   </head>
 
   <body>
+    
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#coursework">Coursework</a></li>
+          <li><a href="#misc">Miscellaneous</a></li>
+      </ul>
+    </nav>
+
+    <div style="height: 20px;"></div> <!-- This adds 20px of space below the navbar -->
+    
+    
+
+
+
+
+
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -31,28 +51,95 @@
                 <p>
                   Hopefully the next time you visit this site, it won't be as empty as it is now!
                 </p>
-                
                 <p style="text-align:center">
-                  <a href="https://github.com/WilliamHangXu">Github</a>
+                  <a href="https://github.com/WilliamHangXu">Github</a> &nbsp;/&nbsp;
+                  <a href="www.linkedin.com/in/williamxh">LinkedIn</a>
                 </p>
               </td>
               <td style="padding:2.5%;width:40%;max-width:40%">
-                <img style="width:200px; height: auto; object-fit: cover; border-radius: 15px;" alt="profile photo" src="images/profile_pic.jpg">
+                <img style="width:80%;max-width:100%; object-fit: cover; border-radius: 15px;" alt="profile photo" src="images/profile_pic.jpg">
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+          <table id="research" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr onmouseout="finger_stop()" onmouseover="finger_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='finger_image'><video  width=100% muted autoplay loop>
+                  <source src="images/finger.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/finger.png' width=100%>
+                </div>
+                <script type="text/javascript">
+                  function finger_start() {
+                    document.getElementById('finger_image').style.opacity = "1";
+                  }
+                  function finger_stop() {
+                    document.getElementById('finger_image').style.opacity = "0";
+                  }
+                  finger_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="/research/softrobot">
+                  <span>Soft Robot Control with Reinforcement Learning</span>
+                </a>
+                
                 <p>
-                  I am interested in the intersection of machine learning and robotics.
+                Neural fields let you recover editable UV mappings for the challenging geometries produced by NeRF-like models.
                 </p>
               </td>
             </tr>
           </tbody></table>
 
-         
+
+          
+
+          <table id="projects" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <h2>Projects</h2>
+            </td>
+            </tr>
+          </tbody></table>
+
+          
+
+          <table id="coursework" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <h2>Coursework</h2>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table id="miscellaneous" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+          <td style="padding:20px;width:100%;vertical-align:middle">
+            <h2>Miscellaneous</h2>
+            <p>
+              I grew up and lived in Beijing, China before coming to the United States for college, so I speak both Mandarin and English.
+            </p>
+            <p>
+              In my free time I enjoy playing badminton and watching animes.
+            </p>
+          </td>
+        </tr>
+      </tbody></table>
+
+      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=n&d=7DEk3W1Zrj4eB19anSjxGz4-_4gc5ez5PlYSl77Ip3g&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080'></script>
           
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -67,5 +154,8 @@
         </td>
       </tr>
     </table>
+
+    
+
   </body>
 </html>
