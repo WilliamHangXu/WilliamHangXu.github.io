@@ -13,17 +13,7 @@
   </head>
 
   <body>
-    
-    <!-- Navigation Bar -->
-    <!-- <nav>
-      <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#coursework">Coursework</a></li>
-          <li><a href="#misc">Miscellaneous</a></li>
-      </ul>
-    </nav> -->
+
     <nav>
       <div class="nav-container">
           <div class="logo">Hang Xu</div> <!-- Optional: Add a logo or brand name -->
@@ -31,7 +21,7 @@
           <ul class="nav-links">
               <li><a href="#">Home</a></li>
               <li><a href="#research">Research</a></li>
-              <li><a href="#project">Project</a></li>
+              <li><a href="#projects">Projects</a></li>
               <li><a href="#coursework">Coursework</a></li>
               <li><a href="#misc">Misc</a></li>
           </ul>
@@ -54,7 +44,7 @@
     
   
 
-    <div style="height: 20px;"></div> <!-- This adds 20px of space below the navbar -->
+    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
     
     
 
@@ -78,11 +68,12 @@
                   Hi there! I am currently a senior at Vanderbilt University majoring in Computer Science and Applied Mathematics. I also go by the name William.
                 </p>
                 <p>
-                  Hopefully the next time you visit this site, it won't be as empty as it is now!
+                  I am interested in the intersection of machine learning and robotics.
                 </p>
                 <p style="text-align:center">
                   <a href="https://github.com/WilliamHangXu">Github</a> &nbsp;/&nbsp;
-                  <a href="www.linkedin.com/in/williamxh">LinkedIn</a>
+                  <a href="www.linkedin.com/in/williamxh">LinkedIn</a> &nbsp;/&nbsp;
+                  <a>a fake Google Scholar button</a>
                 </p>
               </td>
               <td style="padding:2.5%;width:40%;max-width:40%">
@@ -122,17 +113,74 @@
                 </script>
               </td>
               <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="/research/softrobot">
+                <a href="/research/softrobot/">
                   <span>Soft Robot Control with Reinforcement Learning</span>
                 </a>
-                
-                
+                <p>
+                  October 2023 - Present
+                </p>
+                <p>
+                  Exploring how to teach a soft robot finger to reach a point with both model-free and model-based reinforcement learning.
+                </p>
               </td>
             </tr>
           </tbody></table>
 
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr onmouseout="posg_stop()" onmouseover="posg_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='posg_image'><video  width=100% muted autoplay loop>
+                  <source src="images/posg.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/posg.png' width=100%>
+                </div>
+                <script type="text/javascript">
+                  function posg_start() {
+                    document.getElementById('posg_image').style.opacity = "1";
+                  }
+                  function posg_stop() {
+                    document.getElementById('posg_image').style.opacity = "0";
+                  }
+                  posg_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="/research/posg/">
+                  <span>Algorithms for Partially Observable Stochastic Games</span>
+                </a>
+                <p>
+                  June 2024 - Present
+                </p>
+                <p>
+                  Developing algorithms and environments for solving games with multiple players, partial observability, and continuous spaces.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
 
-          
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <img src='images/cpswt.png' width=100%>
+                </div>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="/research/cpswt/">
+                  <span>Integration of ns-3 as a CPSWT Federate</span>
+                </a>
+                <p>
+                  Summer 2023
+                </p>
+                <p>
+                  Maintained and integrated the ns-3 network simulator into the Cyber Physical System Wind Tunnel project.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+         
 
           <table id="projects" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -142,15 +190,80 @@
             </tr>
           </tbody></table>
 
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr onmouseout="driveopt_stop()" onmouseover="driveopt_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div style="position: relative; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <!-- Static Image -->
+                    <img src='images/driveopt_static.png' width="100%" style="position: relative; z-index: 1;" id="static_image">
+                    <!-- GIF Image -->
+                    <img src='images/driveopt.gif' width="100%" style="position: absolute; top: 0; left: 0; opacity: 0; z-index: 2;" id="driveopt_image">
+                  </div>
+                  <script type="text/javascript">
+                    function driveopt_start() {
+                      document.getElementById('driveopt_image').style.opacity = "1";
+                    }
+                    function driveopt_stop() {
+                      document.getElementById('driveopt_image').style.opacity = "0";
+                    }
+                    driveopt_stop();
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="/projects/driveopt/">
+                    <span>DriveOpt: Vehicle Path Planning with Model Predictive Control</span>
+                  </a>
+                  <p>
+                    2023-2024
+                  </p>
+                  <p>
+                    The vehicle dodges obstacles and collects resources while satisfying a set of constraints with MPC and non-linear programming.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <img src='images/protein.png' width=100%>
+                </div>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="/projects/protein/">
+                  <span>Protein Information Retriever</span>
+                </a>
+                <p>
+                  Summer 2022
+                </p>
+                <p>
+                  Fetches protein sequence data of multiple forms from online databases and performs analysis. 
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
           
 
           <table id="coursework" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
               <h2>Coursework</h2>
+              
             </td>
           </tr>
         </tbody></table>
+
+        
+
+        
+
+        
+
 
         <table id="miscellaneous" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
@@ -160,20 +273,20 @@
               I grew up and lived in Beijing, China before coming to the United States for college, so I speak both Mandarin and English.
             </p>
             <p>
-              In my free time I enjoy playing badminton and watching animes.
+              In my free time I enjoy playing badminton and watching animes. (<a href="https://myanimelist.net/animelist/WillXH">EN</a> / <a href="http://bangumi.tv/anime/list/699580">CN</a>)
             </p>
           </td>
         </tr>
       </tbody></table>
 
-      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=n&d=7DEk3W1Zrj4eB19anSjxGz4-_4gc5ez5PlYSl77Ip3g&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080'></script>
+      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=tt&d=7DEk3W1Zrj4eB19anSjxGz4-_4gc5ez5PlYSl77Ip3g&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080'></script>
           
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
                 <br>
                 <p style="text-align:right;font-size:small;">
-                  Template borrowed from  <a href="https://jonbarron.info/" style="font-size:small;">Jon Barron</a>. 
+                  Template borrowed from <a href="https://jonbarron.info/" style="font-size:small;">Jon Barron</a>. 
                 </p>
               </td>
             </tr>

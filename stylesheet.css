@@ -74,6 +74,10 @@ a:hover {
   text-decoration: none;
 }
 
+html {
+  scroll-padding-top: 60px; /* Adjust this value to match the navbar's height */
+}
+
 body,
 td,
 th,
@@ -145,6 +149,7 @@ nav {
   border-bottom: 2px solid #eaeaea;
   display: flex;
   align-items: center; /* Vertically center the content */
+  margin-bottom: 200px;
 }
 
 .nav-container {
@@ -214,28 +219,27 @@ nav {
   }
 
   .nav-links li {
-      text-align: center;
-      margin: 0;
-      padding: 0px 20px; /* Adjust padding for spacing */
-      border-bottom: 1px solid #eaeaea; /* Line separating the buttons */
-      width: 100%; /* Ensure li spans the full width of nav-links */
-      box-sizing: border-box;
-  }
+    text-align: center; /* Center align the text */
+    margin: 0;
+    padding: 0 0; /* Adjust padding for spacing */
+    position: relative; /* Position relative to use pseudo-elements */
+    width: 100%; /* Ensure li spans the full width of nav-links */
+    box-sizing: border-box; /* Ensure padding and borders are included in element's width */
+}
 
-  .nav-links li:last-child {
-      border-bottom: none; /* Remove the bottom border for the last item */
-  }
+.nav-links li::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 12.5%; /* Start at 12.5% to center the line in the middle 75% */
+    width: 75%; /* Make the line span 75% of the width */
+    height: 1px; /* Line height */
+    background-color: #eaeaea; /* Line color */
+}
 
-  .nav-links li a {
-      padding: 10px 0; /* Adjust padding to reduce the height of the link */
-      color: #333;
-      background-color: transparent;
-      border-radius: 0;
-      margin: 0;
-      box-shadow: none; /* Remove any shadow or special effects */
-      transition: none; /* Remove hover transition effects */
-      width: 100%; /* Ensure the link spans the full width of the container */
-  }
+.nav-links li:last-child::before {
+    content: none; /* Remove the line for the last item */
+}
 
   .nav-links li a:active {
     color: #007acc; /* Change text color to blue when clicked */
