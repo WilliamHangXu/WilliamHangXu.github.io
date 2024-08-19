@@ -14,37 +14,15 @@
 
   <body>
 
-    <nav>
-      <div class="nav-container">
-          <div class="logo">Hang Xu</div> <!-- Optional: Add a logo or brand name -->
-          <div class="hamburger" onclick="toggleMenu()">&#9776;</div> <!-- Hamburger icon -->
-          <ul class="nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#research">Research</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#coursework">Coursework</a></li>
-              <li><a href="#misc">Misc</a></li>
-          </ul>
-      </div>
-  </nav>
-  <script>
-    function toggleMenu() {
-        var navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-    }
-    
-    // Auto-collapse navbar when a link is clicked
-    document.querySelectorAll('.nav-links li a').forEach(link => {
-        link.addEventListener('click', () => {
-            var navLinks = document.querySelector('.nav-links');
-            navLinks.classList.remove('active'); // Collapse the navbar
-        });
-    });
-    </script>
-    
-  
-
     <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
+    <div id="navbar"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
     
     
 
@@ -126,6 +104,11 @@
             </tr>
           </tbody></table>
 
+          
+          
+          
+          
+
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr onmouseout="posg_stop()" onmouseover="posg_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
@@ -194,37 +177,31 @@
             <tbody>
               <tr onmouseout="driveopt_stop()" onmouseover="driveopt_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div style="position: relative; height: 100%; display: flex; align-items: center; justify-content: center;">
+                  <div class="one" style="display: flex; align-items: center; justify-content: center; position: relative;">
                     <!-- Static Image -->
-                    <img src='images/driveopt_static.png' width="100%" style="position: relative; z-index: 1;" id="static_image">
-                    <!-- GIF Image -->
-                    <img src='images/driveopt.gif' width="100%" style="position: absolute; top: 0; left: 0; opacity: 0; z-index: 2;" id="driveopt_image">
+                    <img id="test_image" src="images/driveopt_static.png" width="100%" style="position: relative;">
                   </div>
                   <script type="text/javascript">
                     function driveopt_start() {
-                      document.getElementById('driveopt_image').style.opacity = "1";
+                      document.getElementById('test_image').src = 'images/driveopt.gif';
                     }
                     function driveopt_stop() {
-                      document.getElementById('driveopt_image').style.opacity = "0";
+                      document.getElementById('test_image').src = 'images/driveopt_static.png';
                     }
-                    driveopt_stop();
                   </script>
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
                   <a href="/projects/driveopt/">
                     <span>DriveOpt: Vehicle Path Planning with Model Predictive Control</span>
                   </a>
-                  <p>
-                    2023-2024
-                  </p>
-                  <p>
-                    The vehicle dodges obstacles and collects resources while satisfying a set of constraints with MPC and non-linear programming.
-                  </p>
+                  <p>2023-2024</p>
+                  <p>The vehicle dodges obstacles and collects resources with MPC and constrained non-linear programming.</p>
                 </td>
               </tr>
             </tbody>
           </table>
-          
+
+
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -253,19 +230,20 @@
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
               <h2>Coursework</h2>
-              
+              <h4>At Vanderbilt</h4>
+              <u><b>Deep Learning:&nbsp;</b></u> Mathematical foundations and implementations of classic neural network architectures with PyTorch.<br>
+              <u><b>Reinforcement Learning:&nbsp;</b></u> Implemented Dynamic Programming and Deep RL algorithms with TensorFlow.<br>
+              <u><b>Algorithms for Decision Making:&nbsp;</b></u>Probabilistic reasoning, sequential decision making.<br>
+              <u><b>Autonomous Vehicle Project:&nbsp;</b></u>Implementation of motion planning, localization, and perception modules of an autonomous vehicle.<br>
+              <u><b>Mathematics:&nbsp;</b></u>Linear Algebra, Probability, Non-linear Optimization, Analysis, Abstract Algebra.<br>
+              <!-- <h4>Others</h4>
+              <u><b>Deep Reinforcement Learning:&nbsp;</b></u>CS 285@UC Berkeley. <br> -->
+
             </td>
           </tr>
         </tbody></table>
 
-        
-
-        
-
-        
-
-
-        <table id="miscellaneous" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        <table id="misc" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
           <td style="padding:20px;width:100%;vertical-align:middle">
             <h2>Miscellaneous</h2>

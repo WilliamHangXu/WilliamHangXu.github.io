@@ -1,19 +1,36 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Hang Xu</title>
 
     <meta name="author" content="Hang Xu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/neural.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="shortcut icon" href="../../images/neural.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
     
-</head>
+  </head>
+
+  <body>
+
+    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
+    <div id="navbar"></div>
+    <script>
+        fetch('../../navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
     
-<body>
-    Coming soon!
+      
     
-</body>
+
+
+
+
+
+    
+  </body>
 </html>
