@@ -1,18 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
 
-    <title>Hang Xu</title>
+    <title>Soft Robot Control with Reinforcement Learning</title>
 
-    <meta name="author" content="Hang Xu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/neural.png" type="image/png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "G-PYVRSFMDRL");
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-    
-</head>
-    
-<body>
+    <link rel="stylesheet" href="../../css/bulma.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="../../css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="icon" href="../../images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../../js/fontawesome.all.min.js"></script>
+    <script src="../../js/bulma-carousel.min.js"></script>
+    <script src="../../js/bulma-slider.min.js"></script>
+    <script src="../../js/index.js"></script>
+  </head>
+  <body>
+    <!-- Example page: research.html -->
     <div id="navbar"></div>
     <script>
       fetch("../../navbar.html")
@@ -21,7 +55,71 @@
           document.getElementById("navbar").innerHTML = data;
         });
     </script>
-    Coming soon!
+    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
+
     
-</body>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Algorithms for Partially Observable Stochastic Games
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Introduction</h2>
+            <div class="content has-text-justified">
+              <p>
+                Solving partially observable stochastic games (POSG) involve decision making among
+                multiple players where only only imperfect information is available, making them particularly
+                challenging and relevant for complex real-world scenarios. I will be testing and experimenting
+                with algorithms for solving such games, especially those with continuous spaces that likely makes
+                classic tree search methods ineffective.
+              </p>
+              <p>
+                I started working on this project recently and I'm still in the exploration stage.
+                Super excited to work with <a href="https://vampir-lab.github.io/">VAMPIR Lab</a> and
+                the brilliant people here!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!--/ Paper video. -->
+      </div>
+    </section>
+
+   
+    <footer class="footer">
+      
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p style="text-align:center">
+                Website template comes from 
+                <a
+                  rel="license"
+                  href="https://keunhong.com/"
+                  >Keunhong Park's</a
+                >
+                <a href="https://nerfies.github.io/">Nerfies project page</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
