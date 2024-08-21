@@ -1,36 +1,193 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8" />
 
-    <title>Hang Xu</title>
+    <title>Soft Robot Control with Reinforcement Learning</title>
 
-    <meta name="author" content="Hang Xu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="../../images/neural.png" type="image/png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "G-PYVRSFMDRL");
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-    
+    <link rel="stylesheet" href="../../css/bulma.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="../../css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="icon" href="../../images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../../js/fontawesome.all.min.js"></script>
+    <script src="../../js/bulma-carousel.min.js"></script>
+    <script src="../../js/bulma-slider.min.js"></script>
+    <script src="../../js/index.js"></script>
   </head>
-
   <body>
-
-    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
+    <!-- Example page: research.html -->
     <div id="navbar"></div>
     <script>
-        fetch('../../navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
     </script>
+    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
+
     
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Soft Robot Control with Reinforcement Learning
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Introduction</h2>
+            <div class="content has-text-justified">
+              <p>
+                Soft robotics enables safe and adaptable interaction with
+                delicate environments, revolutionizing fields like healthcare
+                and manufacturing. However, the control of soft robotics
+                presents a unique challenge due to the flexibility and infinite
+                degrees of freedom that characterize soft materials. Traditional
+                control methods often struggle to manage the complex dynamics of
+                these systems. This project explores the potential of
+                reinforcement learning (RL) to improve the control of a soft
+                robot finger through autonomous learning and optimization.
+              </p>
+              <p>
+                I am fortunate to be mentored by
+                <a href="https://www.tbeckers.com/">Prof. Thomas Beckers</a>,
+                and to work alongside some amazing people in the lab!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Methods & Setup</h2>
+            <div class="title is-3">
+              <img
+                style="width: 30%; max-width: 100%; border-radius: 15px"
+                alt="profile photo"
+                src="../../images/finger.png"
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                The robot that I experiment with is a rubber robotic finger
+                actuated by a cable that can be pulled to bend the finger,
+                inspired by the tutorial of the SoftRobots toolkit. This setup
+                is available both in simulation and as an actual hardware. The
+                control problem I am interested in is to have the tip of the
+                finger reach a pre-defined point, which can potentially be
+                solved by training an RL policy that outputs the displacement of
+                the cable as action.
+              </p>
+              <p>
+                Training happens entirely in simulation. I created the finger
+                simulation using
+                <a href="https://www.sofa-framework.org/">SOFA</a>. The
+                application
+                <a href="https://github.com/SofaDefrost/SofaGym">SofaGym</a>
+                offers a convenient way to create a
+                <a href="https://github.com/openai/gym">Gym</a> environment from
+                a SOFA simulation and to train classic RL algorithms (DQN, PPO,
+                etc.) on it.
+              </p>
+              <p>
+                The trained policy can be saved and loaded for testing, both in
+                simulation and on hardware. SofaGym supports testing in
+                simulation. Testing on hardware requires the Robot Operating
+                System (ROS). The saved policy is loaded into a policy node,
+                which subscribes to the camera node who tracks and publishes the
+                state (coordinates) of the finger, and publishes action
+                (displacement of the cable) to the motor node, which pulls the
+                cable to actuate the finger.
+              </p>
+            </div>
+            <div class="title is-3">
+              <img
+                style="width: 50%; max-width: 100%; border-radius: 15px"
+                alt="profile photo"
+                src="../../images/sofagym.png"
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                Notice that the RL algorithms supported by SofaGym are
+                themselves model-free. Model-based RL uses a learned model to predict and plan actions,
+                greatly improving sample efficiency. However, learning an accurate model of the environment
+                has long been a challenging task. I am currently experimenting learning a physics-informed
+                uncertainty-aware model for simpler dynamical systems such as inverted pendulum and will 
+                see if this technique can be used to learn the dynamics of the soft robotic finger.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--/ Paper video. -->
+      </div>
+    </section>
+
+   
+    <footer class="footer">
       
-    
-
-
-
-
-
-    
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p style="text-align:center">
+                Website template comes from 
+                <a
+                  rel="license"
+                  href="https://keunhong.com/"
+                  >Keunhong Park's</a
+                >
+                <a href="https://nerfies.github.io/">Nerfies project page</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

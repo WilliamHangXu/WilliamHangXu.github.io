@@ -8,11 +8,19 @@
     <meta name="author" content="Hang Xu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/neural.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
     
 </head>
     
 <body>
+    <div id="navbar"></div>
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
     Coming soon!
     
 </body>
