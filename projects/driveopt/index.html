@@ -1,19 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
 
-    <title>Hang Xu</title>
+    <title>Vehicle Path Planning with Model Predictive Control</title>
 
-    <meta name="author" content="Hang Xu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/neural.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-</head>
-    
-<body>
-    Coming soon!
-    
-</body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../../images/neural.png" type="image/png" />
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+    <link rel="stylesheet" href="../../css/bulma.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="../../css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="icon" href="../../images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../../js/fontawesome.all.min.js"></script>
+    <script src="../../js/bulma-carousel.min.js"></script>
+    <script src="../../js/bulma-slider.min.js"></script>
+    <script src="../../js/index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body);"
+    ></script>
+  </head>
+  <body>
+    <!-- Example page: research.html -->
+    <div id="navbar"></div>
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    <div style="height: 40px"></div>
+    <!-- This adds 20px of space below the navbar -->
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Vehicle Path Planning with Model Predictive Control
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Introduction</h2>
+            <div class="content has-text-justified">
+              <p>
+                In this project, a simulated vehicle drives on a straight lane,
+                attempting to get from one end to another. The vehicle needs to
+                stay within the lane, avoid obstacles, and collect resources.
+                This is formulated as a model predictive control problem, which
+                can be solved by using non-linear programming. See the
+                <a href="https://github.com/WilliamHangXu/DriveOpt"
+                  >GitHub repository</a
+                >
+                for more detail.
+              </p>
+              <p>
+                This project, implemented in Julia, is an extension of a
+                homework assignment from the Autonomous Vehicle class I took at
+                Vanderbilt.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Problem Setup</h2>
+
+            <div class="title is-3">
+              <img
+                style="width: 100%; max-width: 100%; border-radius: 15px"
+                alt="profile photo"
+                src="../../images/driveopt.gif"
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                The car drives on a straight lane, starting from the left side.
+                We apply control (acceleration and angular velocity) to the car
+                to change its state (location, velocity, and heading angle) to
+                reach the right side of the lane. The car has to avoid obstacles
+                (blue circles) and collect resources (red circles). The car does
+                not have full information about the lane layout. At each time
+                step, it can only see objects that are in its visible area (the
+                yellow area).
+              </p>
+              <p>
+                While the car is trying to reach the end point, there are
+                certain constraints that it needs to satisfy, and there are some
+                values that it wants to minimize or maximize. Thus, the
+                simulation is basically solving a series of optimization
+                problems. In general, the whole simulation proceeds step by
+                step. At each time step, the car examines the visible objects,
+                and generate a trajectory (green dots extending from the car) of
+                certain length by solving the optimization problem. Then, the
+                car moves to the first step of the generated trajectory for the
+                next time step. This loop continues until the car reaches the
+                end point.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Optimization Formulation</h2>
+
+            <div class="content has-text-justified">
+              <p>
+                For simplicity, this section only offers a conceptual overview
+                of the optimization problem. For detailed mathematical
+                formulation and implementation, please refer to the github
+                repository.
+              </p>
+              <p>
+                <b>Design variables</b> The goal of the optimization problem is
+                to generate a trajectory consisting of vehicle states and
+                controls. THese controls and states are the design variables
+                that we can control.
+              </p>
+              <p>
+                <b>Constraints</b> There are five sets of constraints that need
+                to be satisfied:
+              </p>
+              <ol>
+                <li>
+                  Physics constraints. The state transition must obey physics
+                  laws.
+                </li>
+                <li>Lane constraints. The vehicle must not leave the lane.</li>
+                <li>
+                  Obstacle constraints. The vehicle must not collide with
+                  obstacles.
+                </li>
+                <li>
+                  Velocity constraints. The vehicle must maintain a speed higher
+                  than a minimum value.
+                </li>
+                <li>Heading constraints. The vehicle must not go backwards.</li>
+              </ol>
+
+              <p>
+                <b>Objective function</b> The objective function, whose value we
+                want to minimize, is the sum of costs at each trajectory step.
+                At each step, the cost consists of three components:
+              </p>
+              <ol>
+                <li>
+                  The negative of the velocity, because we would like the
+                  vehicle to drive fast.
+                </li>
+                <li>
+                  The square of controls (acceleration and angular velocity),
+                  because we want the vehicle to drive smoothly and hence avoid
+                  radical controls.
+                </li>
+                <li>
+                  Amount of resources collected (actually more complicated than
+                  this), because we want the vehicle to collect as much resource
+                  as possible.
+                </li>
+              </ol>
+
+              <p>
+                Thus, the overall optimization problem is \[ argmin_{z} \; f(z)
+                \\ s.t. \text{ all constraints are met} \\ f(z) = \sum_{i=1}^{l}
+                (-av_i-bR_i+c\alpha^2+d\omega_i^2) \] where: \( z \) is the
+                trajectory, \( l \) is the trajectory length, \( v \) is the
+                velocity, \( R \) is the resources collected, \( \alpha \) is
+                the acceleration, \( \omega \) is the angular velocity, \(
+                a,b,c,d \) are non-negative numbers that can adjust the relative
+                importance of the three components.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--/ Paper video. -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p style="text-align: center">
+              Website template comes from
+              <a rel="license" href="https://keunhong.com/">Keunhong Park's</a>
+              <a href="https://nerfies.github.io/">Nerfies project page</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,19 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
 
-    <title>Hang Xu</title>
+    <title>Integration of ns-3 as a CPSWT Federate</title>
 
-    <meta name="author" content="Hang Xu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/neural.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-</head>
-    
-<body>
-    Coming soon!
-    
-</body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../../images/neural.png" type="image/png" />
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+    <link rel="stylesheet" href="../../css/bulma.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="../../css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="icon" href="../../images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../../js/fontawesome.all.min.js"></script>
+    <script src="../../js/bulma-carousel.min.js"></script>
+    <script src="../../js/bulma-slider.min.js"></script>
+    <script src="../../js/index.js"></script>
+  </head>
+  <body>
+    <!-- Example page: research.html -->
+    <div id="navbar"></div>
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    <div style="height: 40px"></div>
+    <!-- This adds 20px of space below the navbar -->
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Integration of ns-3 as a CPSWT Federate
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Background</h2>
+            <div class="content has-text-justified">
+              <p>
+                <b>TL;DR:</b> CPSWT is a tool for distributed simulation that
+                leverages a conceptual framework called HLA.
+              </p>
+              <p>
+                <b>High Level Architecture (HLA)</b> We often need to integrate
+                different simulators and let them work together to simulate a
+                larger system. The
+                <a href="https://en.wikipedia.org/wiki/High_Level_Architecture"
+                  >High Level Architecture</a
+                >
+                is a solution to this problem. It is a conceptual framework that
+                fosters interoperability and reuse of simulations and specifies
+                what a simulation looks like. In HLA, all the simulators are
+                wrapped as something we call federates. All the activities that
+                happen among these federates are managed by the run time
+                infrastructure, or RTI, which the federates are connected to.
+                This combined simulation is called a federation. The federates
+                can share data among each other. A federate can publish or
+                subscribe to certain data to declare its interest in updating or
+                getting updates, and the RTI is responsible for delivering the
+                messages. Also, each federate might have their own logical
+                clock, and they need the RTI to advance their logical time or
+                synchronize them with other federates.
+              </p>
+              <p>
+                <b>Cyber Physical System Wind Tunnel</b> HLA is just a set of
+                rules, and we code our simulation program according to it. This
+                is tedious because we need to set up the whole thing from
+                scratch. For example, we need to make the simulators into
+                HLA-compliant federates, and we also need to set up the
+                communication between simulators and the RTI. The Cyber Physical
+                System Wind Tunnel, or CPSWT, largely solves this problem,
+                because it has many premade federates and HLA related
+                functionalities. We use the meta programmable graphical editor
+                WebGME to create a FOM sheet to specify what our federation
+                looks like, and CPSWT will automatically generate almost all the
+                code for us, whether Java or C++. All we need to do is to
+                configure the federate to tell them what to do.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">My work</h2>
+            <div class="content has-text-justified">
+              <p>
+                <b>TL;DR: </b> I integrated the ns-3 network simulator as a
+                component of CPSWT. Also, I updated the sample models to use
+                components in libraries to make them easier to maintain.
+              </p>
+              <p>
+                Firstly, I would like to express my sincere gratitude to my
+                mentors, Dr. Himanshu Neema and Dr. Harmon Nine, for their
+                unwavering patience, support, and invaluable guidance throughout
+                my work.
+              </p>
+            </div>
+            <div class="title is-3">
+              <img
+                style="width: 50%; max-width: 100%; border-radius: 15px"
+                alt="profile photo"
+                src="../../images/cpswt.png"
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                CPSWT contains many premade federates for popular simulators,
+                such as the omnet++ discrete event simulator. I have been trying
+                to add a new federate based on a network simulator called ns3.
+                The first step is to make a scheduler to schedule events for the
+                simulator, and then we need to implement the interface between
+                the RTI and the model so that the two can communicate with each
+                other. Here’s a use case of the ns3 federate: suppose the sender
+                wants to send a message to the receiver through a network, the
+                message will get to the RTI first. The RTI will then send the
+                message to the ns3 federate, which is received by the Interface.
+                The interface will pass the message to the model, and the
+                message will propagate through the network model and then get
+                back to the Interface, who will then send the message to the
+                RTI, and the RTI will send the message to the receiver. The ns3
+                federate allows us to simulate activities like network attack on
+                the simulation model we build.
+              </p>
+              <p>
+                We have created several sample simulation models to demonstrate
+                and test the functionality of CPSWT. Previously, these samples
+                contained components that were not in libraries. This means
+                whenever we make changes to certain components, the update is
+                not reflected in our models, so we need to go to these models
+                and make the same changes for all of them. I have updated the
+                sample models and now they are using components that are in
+                libraries, which means that if we make changes to certain
+                components and then open a sample, there will be an option for
+                us to reflect the changes by simply clicking a button. This
+                makes the samples easier to maintain.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--/ Paper video. -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p style="text-align: center">
+              Website template comes from
+              <a rel="license" href="https://keunhong.com/">Keunhong Park's</a>
+              <a href="https://nerfies.github.io/">Nerfies project page</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

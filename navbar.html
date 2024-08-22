@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- navbar.html -->
-<nav>
-    <div class="nav-container">
+    <nav>
+      <div class="nav-container">
         <div class="logo">
-            <a href="../../index.html" style="font-size: 24px;font-weight: bold;color: inherit;">Hang Xu</a>
+          <a
+            href="../../index.html"
+            style="font-size: 24px; font-weight: bold; color: inherit"
+            >Hang Xu</a
+          >
         </div>
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
         <ul class="nav-links">
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="../../index.html#research">Research</a></li>
-            <li><a href="../../index.html#projects">Project</a></li>
-            <li><a href="../../index.html#coursework">Coursework</a></li>
-            <li><a href="../../index.html#misc">Misc</a></li>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#research">Research</a></li>
+          <li><a href="../../index.html#projects">Project</a></li>
+          <li><a href="../../index.html#coursework">Coursework</a></li>
+          <li><a href="../../index.html#misc">Misc</a></li>
         </ul>
-    </div>
-</nav>
-<script>
-    function toggleMenu() {
-        var navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-    }
-    
-    // Auto-collapse navbar when a link is clicked
-    document.querySelectorAll('.nav-links li a').forEach(link => {
-        link.addEventListener('click', () => {
-            var navLinks = document.querySelector('.nav-links');
-            navLinks.classList.remove('active'); // Collapse the navbar
-        });
-    });
-    </script>
-</body>
-</html>
+      </div>
+    </nav>
+    <script>
+      function toggleMenu() {
+        var navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("active");
+      }
 
+      // Auto-collapse navbar when a link is clicked
+      document.querySelectorAll(".nav-links li a").forEach((link) => {
+        link.addEventListener("click", () => {
+          var navLinks = document.querySelector(".nav-links");
+          navLinks.classList.remove("active"); // Collapse the navbar
+        });
+      });
+    </script>
+  </body>
+</html>

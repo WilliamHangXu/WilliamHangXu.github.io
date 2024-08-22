@@ -1,19 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
 
-    <title>Hang Xu</title>
+    <title>Protein Information Retriever</title>
 
-    <meta name="author" content="Hang Xu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/neural.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-</head>
-    
-<body>
-    Coming soon!
-    
-</body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../../images/neural.png" type="image/png" />
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+    <link rel="stylesheet" href="../../css/bulma.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="../../css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="../../css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="icon" href="../../images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../../js/fontawesome.all.min.js"></script>
+    <script src="../../js/bulma-carousel.min.js"></script>
+    <script src="../../js/bulma-slider.min.js"></script>
+    <script src="../../js/index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body);"
+    ></script>
+  </head>
+  <body>
+    <!-- Example page: research.html -->
+    <div id="navbar"></div>
+    <script>
+      fetch("../../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    <div style="height: 40px"></div>
+    <!-- This adds 20px of space below the navbar -->
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Protein Information Retriever
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Introduction</h2>
+            <div class="content has-text-justified">
+              <p>
+                Analyzing a protein's sequence is crucial for studying its
+                structure and conformation change. This project aims to retrieve
+                protein sequence data, feed it into various algorithms for
+                richer information, and then gather and store the results in a
+                data structure that' convenient for further analysis. See the
+                <a
+                  href="https://github.com/WilliamHangXu/Protein-Spin-Label-Locator"
+                  >GitHub repository</a
+                >
+                for more detail.
+              </p>
+              <p>
+                Many thanks to
+                <a href="https://lab.vanderbilt.edu/mchaourab-lab/"
+                  >Dr. Hassane Mchaourab</a
+                >
+                and the lab members for their kind instruction and support!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Project Structure</h2>
+
+            <div class="title is-3">
+              <img
+                style="width: 100%; max-width: 100%; border-radius: 15px"
+                alt="profile photo"
+                src="../../images/protein.png"
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                Given a protein of interest, the program first downloads a PDB
+                file for this protein from the Protein Data Bank, which includes
+                its sequence information and coordinates of its atoms. This file
+                is then fed to the DSSP (Dictionary of Secondary Structure of
+                Proteins) algorithm to get the secondary structure of the
+                protein. We also extract the primary sequence from the PDB file
+                and feed it to the TOPCONS server to get the membrane
+                affiliation information. The primary sequence is also fed to a
+                sequence of format converting programs to get the sequence in a
+                certain format, which is then fed into the Consurf server to
+                obtain conservation information. All these information are then
+                stored into a Protein object, which is a sequence of AminoAcid
+                objects that store the amino acid's name, index, and all the
+                information we obtained.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--/ Paper video. -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p style="text-align: center">
+              Website template comes from
+              <a rel="license" href="https://keunhong.com/">Keunhong Park's</a>
+              <a href="https://nerfies.github.io/">Nerfies project page</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

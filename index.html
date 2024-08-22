@@ -1,279 +1,468 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Hang Xu</title>
 
-    <meta name="author" content="Hang Xu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/neural.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <meta name="author" content="Hang Xu" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="images/neural.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
   </head>
 
   <body>
-
-    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
+    <div style="height: 40px"></div>
+    <!-- This adds 20px of space below the navbar -->
     <div id="navbar"></div>
     <script>
-        fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
     </script>
-    
-    
 
+    <table
+      style="
+        width: 100%;
+        max-width: 800px;
+        border: 0px;
+        border-spacing: 0px;
+        border-collapse: separate;
+        margin-right: auto;
+        margin-left: auto;
+      "
+    >
+      <tbody>
+        <tr style="padding: 0px">
+          <td style="padding: 0px">
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr style="padding: 0px">
+                  <td style="padding: 2.5%; width: 63%; vertical-align: middle">
+                    <p class="name" style="text-align: center; font-size: 250%">
+                      Hang Xu
+                    </p>
+                    <p class="email" style="text-align: center">
+                      hang [dot] xu [at] vanderbilt [dot] edu
+                    </p>
+                    <p>
+                      Hi there! I am currently a senior at Vanderbilt University
+                      majoring in Computer Science and Applied Mathematics. I
+                      also go by the name William.
+                    </p>
+                    <p>
+                      I am interested in the intersection of machine learning
+                      and robotics.
+                    </p>
+                    <p style="text-align: center">
+                      <a href="https://github.com/WilliamHangXu">Github</a>
+                      &nbsp;/&nbsp;
+                      <a href="www.linkedin.com/in/williamxh">LinkedIn</a>
+                      &nbsp;/&nbsp;
+                      <a>a fake Google Scholar button</a>
+                    </p>
+                  </td>
+                  <td style="padding: 2.5%; width: 40%; max-width: 40%">
+                    <img
+                      style="
+                        width: 80%;
+                        max-width: 100%;
+                        object-fit: cover;
+                        border-radius: 15px;
+                      "
+                      alt="profile photo"
+                      src="images/profile_pic.jpg"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
+            <table
+              id="research"
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style="padding: 20px; width: 100%; vertical-align: middle"
+                  >
+                    <h2>Research</h2>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr onmouseout="finger_stop()" onmouseover="finger_start()">
+                  <td style="padding: 20px; width: 25%; vertical-align: middle">
+                    <div class="one">
+                      <div class="two" id="finger_image">
+                        <video width="100%" muted autoplay loop>
+                          <source src="images/finger.mp4" type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <img src="images/finger.png" width="100%" />
+                    </div>
+                    <script type="text/javascript">
+                      function finger_start() {
+                        document.getElementById("finger_image").style.opacity =
+                          "1";
+                      }
+                      function finger_stop() {
+                        document.getElementById("finger_image").style.opacity =
+                          "0";
+                      }
+                      finger_stop();
+                    </script>
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+                    <a href="/research/softrobot/">
+                      <span
+                        >Soft Robot Control with Reinforcement Learning</span
+                      >
+                    </a>
+                    <p>October 2023 - Present</p>
+                    <p>
+                      Exploring how to teach a soft robot finger to reach a
+                      point with both model-free and model-based reinforcement
+                      learning.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr onmouseout="posg_stop()" onmouseover="posg_start()">
+                  <td style="padding: 20px; width: 25%; vertical-align: middle">
+                    <div class="one">
+                      <div class="two" id="posg_image">
+                        <video width="100%" muted autoplay loop>
+                          <source src="images/posg.mp4" type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <img src="images/posg.png" width="100%" />
+                    </div>
+                    <script type="text/javascript">
+                      function posg_start() {
+                        document.getElementById("posg_image").style.opacity =
+                          "1";
+                      }
+                      function posg_stop() {
+                        document.getElementById("posg_image").style.opacity =
+                          "0";
+                      }
+                      posg_stop();
+                    </script>
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+                    <a href="/research/posg/">
+                      <span
+                        >Algorithms for Partially Observable Stochastic
+                        Games</span
+                      >
+                    </a>
+                    <p>June 2024 - Present</p>
+                    <p>
+                      Developing algorithms and environments for solving games
+                      with multiple players, partial observability, and
+                      continuous spaces.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center; font-size: 250%;">
-                  Hang Xu
-                </p>
-                <p class="email" style="text-align: center;">
-                  hang [dot] xu [at] vanderbilt [dot] edu
-                </p>
-                <p>
-                  Hi there! I am currently a senior at Vanderbilt University majoring in Computer Science and Applied Mathematics. I also go by the name William.
-                </p>
-                <p>
-                  I am interested in the intersection of machine learning and robotics.
-                </p>
-                <p style="text-align:center">
-                  <a href="https://github.com/WilliamHangXu">Github</a> &nbsp;/&nbsp;
-                  <a href="www.linkedin.com/in/williamxh">LinkedIn</a> &nbsp;/&nbsp;
-                  <a>a fake Google Scholar button</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <img style="width:80%;max-width:100%; object-fit: cover; border-radius: 15px;" alt="profile photo" src="images/profile_pic.jpg">
-              </td>
-            </tr>
-          </tbody></table>
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td style="padding: 20px; width: 25%; vertical-align: middle">
+                    <div class="one">
+                      <img src="images/cpswt.png" width="100%" />
+                    </div>
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+                    <a href="/research/cpswt/">
+                      <span>Integration of ns-3 as a CPSWT Federate</span>
+                    </a>
+                    <p>Summer 2023</p>
+                    <p>
+                      Maintained and integrated the ns-3 network simulator into
+                      the Cyber Physical System Wind Tunnel project.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
+            <table
+              id="projects"
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style="padding: 20px; width: 100%; vertical-align: middle"
+                  >
+                    <h2>Projects</h2>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <table id="research" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr onmouseout="driveopt_stop()" onmouseover="driveopt_start()">
+                  <td style="padding: 20px; width: 25%; vertical-align: middle">
+                    <div
+                      class="one"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+                      "
+                    >
+                      <!-- Static Image -->
+                      <img
+                        id="test_image"
+                        src="images/driveopt_static.png"
+                        width="100%"
+                        style="position: relative"
+                      />
+                    </div>
+                    <script type="text/javascript">
+                      function driveopt_start() {
+                        document.getElementById("test_image").src =
+                          "images/driveopt.gif";
+                      }
+                      function driveopt_stop() {
+                        document.getElementById("test_image").src =
+                          "images/driveopt_static.png";
+                      }
+                    </script>
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+                    <a href="/projects/driveopt/">
+                      <span
+                        >Vehicle Path Planning with Model Predictive
+                        Control</span
+                      >
+                    </a>
+                    <p>2023-2024</p>
+                    <p>
+                      The vehicle dodges obstacles and collects resources with
+                      MPC and constrained non-linear programming.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr onmouseout="finger_stop()" onmouseover="finger_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='finger_image'><video  width=100% muted autoplay loop>
-                  <source src="images/finger.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video></div>
-                  <img src='images/finger.png' width=100%>
-                </div>
-                <script type="text/javascript">
-                  function finger_start() {
-                    document.getElementById('finger_image').style.opacity = "1";
-                  }
-                  function finger_stop() {
-                    document.getElementById('finger_image').style.opacity = "0";
-                  }
-                  finger_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="/research/softrobot/">
-                  <span>Soft Robot Control with Reinforcement Learning</span>
-                </a>
-                <p>
-                  October 2023 - Present
-                </p>
-                <p>
-                  Exploring how to teach a soft robot finger to reach a point with both model-free and model-based reinforcement learning.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td style="padding: 20px; width: 25%; vertical-align: middle">
+                    <div class="one">
+                      <img src="images/protein.png" width="100%" />
+                    </div>
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+                    <a href="/projects/protein/">
+                      <span>Protein Information Retriever</span>
+                    </a>
+                    <p>Summer 2022</p>
+                    <p>
+                      Fetches protein sequence data of multiple forms from
+                      online databases and performs analysis.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          
-          
-          
-          
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr onmouseout="posg_stop()" onmouseover="posg_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='posg_image'><video  width=100% muted autoplay loop>
-                  <source src="images/posg.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video></div>
-                  <img src='images/posg.png' width=100%>
-                </div>
-                <script type="text/javascript">
-                  function posg_start() {
-                    document.getElementById('posg_image').style.opacity = "1";
-                  }
-                  function posg_stop() {
-                    document.getElementById('posg_image').style.opacity = "0";
-                  }
-                  posg_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="/research/posg/">
-                  <span>Algorithms for Partially Observable Stochastic Games</span>
-                </a>
-                <p>
-                  June 2024 - Present
-                </p>
-                <p>
-                  Developing algorithms and environments for solving games with multiple players, partial observability, and continuous spaces.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <img src='images/cpswt.png' width=100%>
-                </div>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="/research/cpswt/">
-                  <span>Integration of ns-3 as a CPSWT Federate</span>
-                </a>
-                <p>
-                  Summer 2023
-                </p>
-                <p>
-                  Maintained and integrated the ns-3 network simulator into the Cyber Physical System Wind Tunnel project.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-         
-
-          <table id="projects" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Projects</h2>
-            </td>
-            </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr onmouseout="driveopt_stop()" onmouseover="driveopt_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center; justify-content: center; position: relative;">
-                    <!-- Static Image -->
-                    <img id="test_image" src="images/driveopt_static.png" width="100%" style="position: relative;">
-                  </div>
-                  <script type="text/javascript">
-                    function driveopt_start() {
-                      document.getElementById('test_image').src = 'images/driveopt.gif';
-                    }
-                    function driveopt_stop() {
-                      document.getElementById('test_image').src = 'images/driveopt_static.png';
-                    }
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="/projects/driveopt/">
-                    <span>DriveOpt: Vehicle Path Planning with Model Predictive Control</span>
-                  </a>
-                  <p>2023-2024</p>
-                  <p>The vehicle dodges obstacles and collects resources with MPC and constrained non-linear programming.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <img src='images/protein.png' width=100%>
-                </div>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="/projects/protein/">
-                  <span>Protein Information Retriever</span>
-                </a>
-                <p>
-                  Summer 2022
-                </p>
-                <p>
-                  Fetches protein sequence data of multiple forms from online databases and performs analysis. 
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-
-          
-
-          <table id="coursework" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Coursework</h2>
-              <h4>At Vanderbilt</h4>
-              <u><b>Deep Learning:&nbsp;</b></u> Mathematical foundations and implementations of classic neural network architectures with PyTorch.<br>
-              <u><b>Reinforcement Learning:&nbsp;</b></u> Implemented Dynamic Programming and Deep RL algorithms with TensorFlow.<br>
-              <u><b>Algorithms for Decision Making:&nbsp;</b></u>Probabilistic reasoning, sequential decision making.<br>
-              <u><b>Autonomous Vehicle Project:&nbsp;</b></u>Implementation of motion planning, localization, and perception modules of an autonomous vehicle.<br>
-              <u><b>Mathematics:&nbsp;</b></u>Linear Algebra, Probability, Non-linear Optimization, Analysis, Abstract Algebra.<br>
-              <!-- <h4>Others</h4>
+            <table
+              id="coursework"
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style="padding: 20px; width: 100%; vertical-align: middle"
+                  >
+                    <h2>Coursework</h2>
+                    <h4>At Vanderbilt</h4>
+                    <u><b>Deep Learning:&nbsp;</b></u> Mathematical foundations
+                    and implementations of classic neural network architectures
+                    with PyTorch.<br />
+                    <u><b>Reinforcement Learning:&nbsp;</b></u> Implemented
+                    Dynamic Programming and Deep RL algorithms with
+                    TensorFlow.<br />
+                    <u><b>Algorithms for Decision Making:&nbsp;</b></u
+                    >Probabilistic reasoning, sequential decision making.<br />
+                    <u><b>Autonomous Vehicle Project:&nbsp;</b></u
+                    >Implementation of motion planning, localization, and
+                    perception modules of an autonomous vehicle.<br />
+                    <u><b>Mathematics:&nbsp;</b></u
+                    >Linear Algebra, Probability, Non-linear Optimization,
+                    Analysis, Abstract Algebra.<br />
+                    <!-- <h4>Others</h4>
               <u><b>Deep Reinforcement Learning:&nbsp;</b></u>CS 285@UC Berkeley. <br> -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-            </td>
-          </tr>
-        </tbody></table>
+            <table
+              id="misc"
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style="padding: 20px; width: 100%; vertical-align: middle"
+                  >
+                    <h2>Miscellaneous</h2>
+                    <p>
+                      I grew up and lived in Beijing, China before coming to the
+                      United States for college, so I speak both Mandarin and
+                      English.
+                    </p>
+                    <p>
+                      In my free time I enjoy playing badminton and watching
+                      animes. (<a
+                        href="https://myanimelist.net/animelist/WillXH"
+                        >EN</a
+                      >
+                      / <a href="http://bangumi.tv/anime/list/699580">CN</a>)
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-        <table id="misc" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <h2>Miscellaneous</h2>
-            <p>
-              I grew up and lived in Beijing, China before coming to the United States for college, so I speak both Mandarin and English.
-            </p>
-            <p>
-              In my free time I enjoy playing badminton and watching animes. (<a href="https://myanimelist.net/animelist/WillXH">EN</a> / <a href="http://bangumi.tv/anime/list/699580">CN</a>)
-            </p>
+            <script
+              type="text/javascript"
+              id="clustrmaps"
+              src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=tt&d=7DEk3W1Zrj4eB19anSjxGz4-_4gc5ez5PlYSl77Ip3g&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080"
+            ></script>
+
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td style="padding: 0px">
+                    <br />
+                    <p style="text-align: right; font-size: small">
+                      Template borrowed from
+                      <a href="https://jonbarron.info/" style="font-size: small"
+                        >Jon Barron</a
+                      >.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </td>
         </tr>
-      </tbody></table>
-
-      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=tt&d=7DEk3W1Zrj4eB19anSjxGz4-_4gc5ez5PlYSl77Ip3g&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080'></script>
-          
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Template borrowed from <a href="https://jonbarron.info/" style="font-size:small;">Jon Barron</a>. 
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
+      </tbody>
     </table>
-
-    
-
   </body>
 </html>
