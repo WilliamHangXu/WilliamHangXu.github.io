@@ -5,15 +5,13 @@
 
     <title>Soft Robot Control with Reinforcement Learning</title>
 
-
     <link
       href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="../../images/neural.png" type="image/png" />
 
-
-    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
     <link rel="stylesheet" href="../../css/bulma.min.css" />
     <link rel="stylesheet" href="../../css/bulma-carousel.min.css" />
     <link rel="stylesheet" href="../../css/bulma-slider.min.css" />
@@ -41,9 +39,8 @@
           document.getElementById("navbar").innerHTML = data;
         });
     </script>
-    <div style="height: 40px;"></div> <!-- This adds 20px of space below the navbar -->
-
-    
+    <div style="height: 40px"></div>
+    <!-- This adds 20px of space below the navbar -->
 
     <section class="hero">
       <div class="hero-body">
@@ -93,8 +90,8 @@
             <h2 class="title is-3">Methods & Setup</h2>
             <div class="title is-3">
               <img
-                style="width: 30%; max-width: 100%; border-radius: 15px"
-                alt="profile photo"
+                style="width: 30%"
+                alt="finger photo"
                 src="../../images/finger.png"
               />
             </div>
@@ -102,12 +99,15 @@
               <p>
                 The robot that I experiment with is a rubber robotic finger
                 actuated by a cable that can be pulled to bend the finger,
-                inspired by the tutorial of the SoftRobots toolkit. This setup
-                is available both in simulation and as an actual hardware. The
-                control problem I am interested in is to have the tip of the
-                finger reach a pre-defined point, which can potentially be
-                solved by training an RL policy that outputs the displacement of
-                the cable as action.
+                inspired by the tutorial of the
+                <a
+                  href="https://project.inria.fr/softrobot/install-get-started-2/"
+                  >SoftRobots plugin</a
+                >. This setup is available both in simulation and as an actual
+                hardware. The control problem I am interested in is to have the
+                tip of the finger reach a pre-defined point, which can
+                potentially be solved by training an RL policy that outputs the
+                displacement of the cable as action.
               </p>
               <p>
                 Training happens entirely in simulation. I created the finger
@@ -141,11 +141,14 @@
             <div class="content has-text-justified">
               <p>
                 Notice that the RL algorithms supported by SofaGym are
-                themselves model-free. Model-based RL uses a learned model to predict and plan actions,
-                greatly improving sample efficiency. However, learning an accurate model of the environment
-                has long been a challenging task. I am currently experimenting learning a physics-informed
-                uncertainty-aware model for simpler dynamical systems such as inverted pendulum and will 
-                see if this technique can be used to learn the dynamics of the soft robotic finger. Stay tuned!
+                model-free. Model-based RL uses a learned model to predict and
+                plan actions, greatly improving sample efficiency. However,
+                learning an accurate model of the environment has long been a
+                challenging task. I am currently experimenting learning a
+                physics-informed uncertainty-aware model for simpler dynamical
+                systems such as inverted pendulum and will see if this technique
+                can be used to learn the dynamics of the soft robotic finger.
+                Stay tuned!
               </p>
             </div>
           </div>
@@ -155,22 +158,15 @@
       </div>
     </section>
 
-   
     <footer class="footer">
-      
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
-              <p style="text-align:center">
-                Website template comes from 
-                <a
-                  rel="license"
-                  href="https://keunhong.com/"
-                  >Keunhong Park's</a
-                >
-                <a href="https://nerfies.github.io/">Nerfies project page</a>.
-              </p>
-            </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p style="text-align: center">
+              Website template comes from
+              <a rel="license" href="https://keunhong.com/">Keunhong Park's</a>
+              <a href="https://nerfies.github.io/">Nerfies project page</a>.
+            </p>
           </div>
         </div>
       </div>
