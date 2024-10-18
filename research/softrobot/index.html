@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Soft Robot Control with Reinforcement Learning</title>
 
@@ -22,6 +23,10 @@
     />
     <link rel="stylesheet" href="../../css/index.css" />
     <link rel="icon" href="../../images/favicon.svg" />
+    <meta name="author" content="Hang Xu" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="images/neural.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../../js/fontawesome.all.min.js"></script>
@@ -29,6 +34,7 @@
     <script src="../../js/bulma-slider.min.js"></script>
     <script src="../../js/index.js"></script>
   </head>
+
   <body>
     <!-- Example page: research.html -->
     <div id="navbar"></div>
@@ -37,6 +43,10 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
+          // Load the navbar.js script after inserting the navbar content
+          const script = document.createElement("script");
+          script.src = "../../navbar.js";
+          document.body.appendChild(script);
         });
     </script>
     <div style="height: 40px"></div>

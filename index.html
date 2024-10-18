@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>Hang Xu</title>
 
@@ -20,6 +20,10 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
+          // Load the navbar.js script after inserting the navbar content
+          const script = document.createElement("script");
+          script.src = "navbar.js";
+          document.body.appendChild(script);
         });
     </script>
 
@@ -80,6 +84,7 @@
                         max-width: 100%;
                         object-fit: cover;
                         border-radius: 15px;
+                        margin-top: 40px;
                       "
                       alt="profile photo"
                       src="images/profile_pic.jpg"

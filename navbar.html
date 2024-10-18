@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Navbar</title>
   </head>
   <body>
-    <!-- navbar.html -->
     <nav>
       <div class="nav-container">
         <div class="logo">
@@ -26,19 +25,112 @@
         </ul>
       </div>
     </nav>
-    <script>
+
+    <style>
+      /* Box Sizing */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* Flexbox for Navbar */
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      /* Flexbox for Nav Links */
+      .nav-links {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links.active {
+        display: block;
+      }
+
+      .nav-links li {
+        margin: 0 1rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        cursor: pointer;
+        font-size: 24px;
+      }
+
+      @media (min-width: 768px) {
+        .nav-links {
+          display: flex;
+        }
+
+        .hamburger {
+          display: none;
+        }
+      }
+
+      /* Reset Margins and Paddings */
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol,
+      li,
+      figure,
+      figcaption,
+      blockquote,
+      dl,
+      dd {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul,
+      ol {
+        list-style: none;
+      }
+
+      /* Profile Picture Margin */
+      .profile-picture {
+        margin-top: 20px; /* Adjust the value as needed */
+      }
+    </style>
+
+    <!-- <script>
       function toggleMenu() {
-        var navLinks = document.querySelector(".nav-links");
+        const navLinks = document.querySelector(".nav-links");
         navLinks.classList.toggle("active");
       }
 
-      // Auto-collapse navbar when a link is clicked
-      document.querySelectorAll(".nav-links li a").forEach((link) => {
+      document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
-          var navLinks = document.querySelector(".nav-links");
-          navLinks.classList.remove("active"); // Collapse the navbar
+          const navLinks = document.querySelector(".nav-links");
+          navLinks.classList.remove("active");
         });
       });
-    </script>
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          const navLinks = document.querySelector(".nav-links");
+          navLinks.classList.remove("active");
+        }
+      });
+    </script> -->
   </body>
 </html>
