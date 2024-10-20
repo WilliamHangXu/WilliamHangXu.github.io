@@ -54,25 +54,37 @@
               <tbody>
                 <tr style="padding: 0px">
                   <td style="padding: 2.5%; width: 63%; vertical-align: middle">
-                    <p class="name" style="text-align: center; font-size: 250%">
+                    <p
+                      class="name"
+                      style="
+                        text-align: center;
+                        font-size: 250%;
+                        margin-bottom: 20px;
+                      "
+                    >
                       Hang Xu
                     </p>
-                    <p class="email" style="text-align: center">
+                    <p
+                      class="email"
+                      style="text-align: center; margin-bottom: 20px"
+                    >
                       hang [dot] xu [at] vanderbilt [dot] edu
                     </p>
-                    <p>
+                    <p style="margin-bottom: 20px">
                       Hi there! I am currently a senior undergraduate student at
                       Vanderbilt University majoring in Computer Science and
                       Applied Mathematics. I also go by the name William.
                     </p>
-                    <p>
+                    <p style="margin-bottom: 20px">
                       I am interested in the intersection of machine learning
                       and robotics.
                     </p>
-                    <p style="text-align: center">
+                    <p style="text-align: center; margin-bottom: 20px">
                       <a href="https://github.com/WilliamHangXu">Github</a>
                       &nbsp;/&nbsp;
-                      <a href="www.linkedin.com/in/williamxh">LinkedIn</a>
+                      <a href="https://www.linkedin.com/in/williamxh/"
+                        >LinkedIn</a
+                      >
                       &nbsp;/&nbsp;
                       <a>a fake Google Scholar button</a>
                     </p>
@@ -94,6 +106,12 @@
               </tbody>
             </table>
 
+            <!-- Research Research Research Research Research Research Research Research Research-->
+            <!-- Research Research Research Research Research Research Research Research Research-->
+            <!-- Research Research Research Research Research Research Research Research Research-->
+            <!-- Research Research Research Research Research Research Research Research Research-->
+            <!-- Research Research Research Research Research Research Research Research Research-->
+
             <table
               id="research"
               style="
@@ -111,6 +129,62 @@
                     style="padding: 20px; width: 100%; vertical-align: middle"
                   >
                     <h2>Research</h2>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr onmouseout="posg_stop()" onmouseover="posg_start()">
+                  <td style="padding: 20px; width: 25%; vertical-align: middle">
+                    <div class="one">
+                      <div class="two" id="posg_image">
+                        <video width="100%" muted autoplay loop>
+                          <source src="images/posg.mp4" type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <img
+                        src="images/posg.png"
+                        width="100%"
+                        style="margin-top: 15px"
+                      />
+                    </div>
+                    <script type="text/javascript">
+                      function posg_start() {
+                        document.getElementById("posg_image").style.opacity =
+                          "1";
+                      }
+                      function posg_stop() {
+                        document.getElementById("posg_image").style.opacity =
+                          "0";
+                      }
+                      posg_stop();
+                    </script>
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+                    <a href="/research/posg/">
+                      <span
+                        >Algorithms for Partially Observable Stochastic
+                        Games</span
+                      >
+                    </a>
+                    <p>June 2024 - Present</p>
+                    <p>
+                      Developing algorithms and environments for solving games
+                      with multiple players, partial observability, and
+                      continuous spaces.
+                    </p>
                   </td>
                 </tr>
               </tbody>
@@ -178,41 +252,24 @@
               "
             >
               <tbody>
-                <tr onmouseout="posg_stop()" onmouseover="posg_start()">
+                <tr>
                   <td style="padding: 20px; width: 25%; vertical-align: middle">
                     <div class="one">
-                      <div class="two" id="posg_image">
-                        <video width="100%" muted autoplay loop>
-                          <source src="images/posg.mp4" type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-                      <img src="images/posg.png" width="100%" />
+                      <img
+                        src="images/cpswt.png"
+                        width="100%"
+                        style="margin-top: 23px"
+                      />
                     </div>
-                    <script type="text/javascript">
-                      function posg_start() {
-                        document.getElementById("posg_image").style.opacity =
-                          "1";
-                      }
-                      function posg_stop() {
-                        document.getElementById("posg_image").style.opacity =
-                          "0";
-                      }
-                      posg_stop();
-                    </script>
                   </td>
                   <td style="padding: 20px; width: 75%; vertical-align: middle">
-                    <a href="/research/posg/">
-                      <span
-                        >Algorithms for Partially Observable Stochastic
-                        Games</span
-                      >
+                    <a href="/research/cpswt/">
+                      <span>Integration of ns-3 as a CPSWT Federate</span>
                     </a>
-                    <p>June 2024 - Present</p>
+                    <p>Summer 2023</p>
                     <p>
-                      Developing algorithms and environments for solving games
-                      with multiple players, partial observability, and
-                      continuous spaces.
+                      Maintained and integrated the ns-3 network simulator into
+                      the Cyber Physical System Wind Tunnel project.
                     </p>
                   </td>
                 </tr>
@@ -233,22 +290,32 @@
                 <tr>
                   <td style="padding: 20px; width: 25%; vertical-align: middle">
                     <div class="one">
-                      <img src="images/cpswt.png" width="100%" />
+                      <img
+                        src="images/protein.png"
+                        width="100%"
+                        style="margin-top: 20px"
+                      />
                     </div>
                   </td>
                   <td style="padding: 20px; width: 75%; vertical-align: middle">
-                    <a href="/research/cpswt/">
-                      <span>Integration of ns-3 as a CPSWT Federate</span>
+                    <a href="/projects/protein/">
+                      <span>Protein Information Retriever</span>
                     </a>
-                    <p>Summer 2023</p>
+                    <p>Summer 2022</p>
                     <p>
-                      Maintained and integrated the ns-3 network simulator into
-                      the Cyber Physical System Wind Tunnel project.
+                      Fetches protein sequence data of multiple forms from
+                      online databases and performs analysis.
                     </p>
                   </td>
                 </tr>
               </tbody>
             </table>
+
+            <!-- Projects Projects Projects Projects Projects Projects Projects Projects Projects -->
+            <!-- Projects Projects Projects Projects Projects Projects Projects Projects Projects -->
+            <!-- Projects Projects Projects Projects Projects Projects Projects Projects Projects -->
+            <!-- Projects Projects Projects Projects Projects Projects Projects Projects Projects -->
+            <!-- Projects Projects Projects Projects Projects Projects Projects Projects Projects -->
 
             <table
               id="projects"
@@ -283,7 +350,7 @@
               "
             >
               <tbody>
-                <tr onmouseout="driveopt_stop()" onmouseover="driveopt_start()">
+                <tr>
                   <td style="padding: 20px; width: 25%; vertical-align: middle">
                     <div
                       class="one"
@@ -297,33 +364,20 @@
                       <!-- Static Image -->
                       <img
                         id="test_image"
-                        src="images/driveopt_static.png"
+                        src="images/auto.png"
                         width="100%"
                         style="position: relative"
                       />
                     </div>
-                    <script type="text/javascript">
-                      function driveopt_start() {
-                        document.getElementById("test_image").src =
-                          "images/driveopt.gif";
-                      }
-                      function driveopt_stop() {
-                        document.getElementById("test_image").src =
-                          "images/driveopt_static.png";
-                      }
-                    </script>
                   </td>
                   <td style="padding: 20px; width: 75%; vertical-align: middle">
                     <a href="/projects/driveopt/">
-                      <span
-                        >Vehicle Path Planning with Model Predictive
-                        Control</span
-                      >
+                      <span>Algorithms for Autonomous Vehicles</span>
                     </a>
-                    <p>2023-2024</p>
                     <p>
-                      The vehicle dodges obstacles and collects resources with
-                      MPC and constrained non-linear programming.
+                      A simulated autonomous vehicle drives in a mini city with
+                      only raw sensor measurements and the output of various
+                      detection algorithms.
                     </p>
                   </td>
                 </tr>
@@ -343,23 +397,44 @@
               <tbody>
                 <tr>
                   <td style="padding: 20px; width: 25%; vertical-align: middle">
-                    <div class="one">
-                      <img src="images/protein.png" width="100%" />
+                    <div
+                      class="one"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+                      "
+                    >
+                      <!-- Static Image -->
+                      <img
+                        id="test_image"
+                        src="images/diffusion.png"
+                        width="100%"
+                        style="position: relative"
+                      />
                     </div>
                   </td>
                   <td style="padding: 20px; width: 75%; vertical-align: middle">
-                    <a href="/projects/protein/">
-                      <span>Protein Information Retriever</span>
+                    <a>
+                      <span
+                        >Study of Sampling Schemes for Diffusion Models</span
+                      >
                     </a>
-                    <p>Summer 2022</p>
                     <p>
-                      Fetches protein sequence data of multiple forms from
-                      online databases and performs analysis.
+                      Investigating the performance of different sampling
+                      schemes for diffusion models. Work in progress.
                     </p>
                   </td>
                 </tr>
               </tbody>
             </table>
+
+            <!-- Course Course Course Course Course Course Course Course Course Course Course -->
+            <!-- Course Course Course Course Course Course Course Course Course Course Course -->
+            <!-- Course Course Course Course Course Course Course Course Course Course Course -->
+            <!-- Course Course Course Course Course Course Course Course Course Course Course -->
+            <!-- Course Course Course Course Course Course Course Course Course Course Course -->
 
             <table
               id="coursework"
@@ -390,9 +465,6 @@
                     TensorFlow.<br />
                     <u><b>Algorithms for Decision Making:&nbsp;</b></u
                     >Probabilistic reasoning, sequential decision making.<br />
-                    <u><b>Autonomous Vehicle Project:&nbsp;</b></u
-                    >Implementation of motion planning, localization, and
-                    perception modules of an autonomous vehicle.<br />
                     <u><b>Mathematics:&nbsp;</b></u
                     >Linear Algebra, Probability, Non-linear Optimization,
                     Abstract Algebra.<br />
@@ -457,7 +529,13 @@
                 <tr>
                   <td style="padding: 0px">
                     <br />
-                    <p style="text-align: right; font-size: small">
+                    <p
+                      style="
+                        text-align: right;
+                        font-size: small;
+                        margin-bottom: 20px;
+                      "
+                    >
                       Template borrowed from
                       <a href="https://jonbarron.info/" style="font-size: small"
                         >Jon Barron</a

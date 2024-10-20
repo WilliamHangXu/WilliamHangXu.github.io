@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>Integration of ns-3 as a CPSWT Federate</title>
+    <title>Hang Xu</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -140,20 +140,20 @@
               <p>
                 CPSWT contains many premade federates for popular simulators,
                 such as the omnet++ discrete event simulator. I have been trying
-                to add a new federate based on a network simulator called ns3.
+                to add a new federate based on a network simulator called ns-3.
                 The first step is to make a scheduler to schedule events for the
                 simulator, and then we need to implement the interface between
                 the RTI and the model so that the two can communicate with each
-                other. Here’s a use case of the ns3 federate: suppose the sender
-                wants to send a message to the receiver through a network, the
-                message will get to the RTI first. The RTI will then send the
-                message to the ns3 federate, which is received by the Interface.
-                The interface will pass the message to the model, and the
-                message will propagate through the network model and then get
-                back to the Interface, who will then send the message to the
-                RTI, and the RTI will send the message to the receiver. The ns3
-                federate allows us to simulate activities like network attack on
-                the simulation model we build.
+                other. Here’s a use case of the ns-3 federate: suppose the
+                sender wants to send a message to the receiver through a
+                network, the message will get to the RTI first. The RTI will
+                then send the message to the ns-3 federate, which is received by
+                the Interface. The interface will pass the message to the model,
+                and the message will propagate through the network model and
+                then get back to the Interface, who will then send the message
+                to the RTI, and the RTI will send the message to the receiver.
+                The ns-3 federate allows us to simulate activities like network
+                attack on the simulation model we build.
               </p>
               <p>
                 We have created several sample simulation models to demonstrate

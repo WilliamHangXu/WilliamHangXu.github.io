@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>Vehicle Path Planning with Model Predictive Control</title>
+    <title>Hang Xu</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -65,7 +65,7 @@
           <div class="columns is-centered">
             <div class="column has-text-centered">
               <h1 class="title is-1 publication-title">
-                Vehicle Path Planning with Model Predictive Control
+                Algorithms for Autonomous Vehicles
               </h1>
             </div>
           </div>
@@ -81,20 +81,15 @@
             <h2 class="title is-3">Introduction</h2>
             <div class="content has-text-justified">
               <p>
-                In this project, a simulated vehicle drives on a straight lane,
-                attempting to get from one end to another. The vehicle needs to
-                stay within the lane, avoid obstacles, and collect resources.
-                This is formulated as a model predictive control problem, which
-                can be solved by using non-linear programming. See the
+                This project implements the software and algorithms of an
+                autonomous vehicle system that drives in a simulated mini city.
+                The system commands the steering and acceleration of a realistic
+                vehicle model using only raw sensor measurements and the output
+                of various detection algorithms. See the
                 <a href="https://github.com/WilliamHangXu/DriveOpt"
                   >GitHub repository</a
                 >
                 for more detail.
-              </p>
-              <p>
-                This project, implemented in Julia, is an extension of a
-                homework assignment from the Autonomous Vehicle class I took at
-                Vanderbilt.
               </p>
             </div>
           </div>
@@ -104,113 +99,47 @@
         <!-- Paper video. -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Problem Setup</h2>
+            <h2 class="title is-3">System Structure</h2>
 
             <div class="title is-3">
               <img
                 style="width: 100%; max-width: 100%; border-radius: 15px"
                 alt="profile photo"
-                src="../../images/driveopt.gif"
+                src="../../images/auto.png"
               />
             </div>
             <div class="content has-text-justified">
               <p>
-                The car drives on a straight lane, starting from the left side.
-                We apply control (acceleration and angular velocity) to the car
-                to change its state (location, velocity, and heading angle) to
-                reach the right side of the lane. The car has to avoid obstacles
-                (blue circles) and collect resources (red circles). The car does
-                not have full information about the lane layout. At each time
-                step, it can only see objects that are in its visible area (the
-                yellow area).
+                The system contains three modules: localization, perception, and
+                motion planning. The goal is to drive the vehicle smoothly
+                without running out of the road or colliding with other objects.
               </p>
               <p>
-                While the car is trying to reach the end point, there are
-                certain constraints that it needs to satisfy, and there are some
-                values that it wants to minimize or maximize. Thus, the
-                simulation is basically solving a series of optimization
-                problems. In general, the whole simulation proceeds step by
-                step. At each time step, the car examines the visible objects,
-                and generate a trajectory (green dots extending from the car) of
-                certain length by solving the optimization problem. Then, the
-                car moves to the first step of the generated trajectory for the
-                next time step. This loop continues until the car reaches the
-                end point.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Paper video. -->
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Optimization Formulation</h2>
-
-            <div class="content has-text-justified">
-              <p>
-                For simplicity, this section only offers a conceptual overview
-                of the optimization problem. For detailed mathematical
-                formulation and implementation, please refer to the github
-                repository.
+                <b>Localization</b> The localization module gives the state of
+                the vehicle. Rough state estimations are obtained from simulated
+                sensors such as GPS and IMU, and then are fed to Extended Kalman
+                Filter for more accurate state estimations. These information
+                instruct both the perception module and the motion planning
+                module.
               </p>
               <p>
-                <b>Design variables</b> The goal of the optimization problem is
-                to generate a trajectory consisting of vehicle states and
-                controls. THese controls and states are the design variables
-                that we can control.
+                <b>Perception</b> The purpose of perception is to accurately
+                estimate the state of other objects on the road (other vehicles,
+                pedestrians, etc.). The two simulated cameras on the vehicle
+                gives 2D bounding boxes of the objects on the road. This
+                information and the vehicle's state from localization are fed
+                into Extended Kalman Filter for predicting the state of the
+                objects, which includes their position and size.
               </p>
               <p>
-                <b>Constraints</b> There are five sets of constraints that need
-                to be satisfied:
-              </p>
-              <ol>
-                <li>
-                  Physics constraints. The state transition must obey physics
-                  laws.
-                </li>
-                <li>Lane constraints. The vehicle must not leave the lane.</li>
-                <li>
-                  Obstacle constraints. The vehicle must not collide with
-                  obstacles.
-                </li>
-                <li>
-                  Velocity constraints. The vehicle must maintain a speed higher
-                  than a minimum value.
-                </li>
-                <li>Heading constraints. The vehicle must not go backwards.</li>
-              </ol>
-
-              <p>
-                <b>Objective function</b> The objective function, whose value we
-                want to minimize, is the sum of costs at each trajectory step.
-                At each step, the cost consists of three components:
-              </p>
-              <ol>
-                <li>
-                  The negative of the velocity, because we would like the
-                  vehicle to drive fast.
-                </li>
-                <li>
-                  The square of controls (acceleration and angular velocity),
-                  because we want the vehicle to drive smoothly and hence avoid
-                  radical controls.
-                </li>
-                <li>
-                  Amount of resources collected (actually more complicated than
-                  this), because we want the vehicle to collect as much resource
-                  as possible.
-                </li>
-              </ol>
-
-              <p>
-                Thus, the overall optimization problem is \[ argmin_{z} \; f(z)
-                \\ s.t. \text{ all constraints are met} \\ f(z) = \sum_{i=1}^{l}
-                (-av_i-bR_i+c\alpha^2+d\omega_i^2) \] where: \( z \) is the
-                trajectory, \( l \) is the trajectory length, \( v \) is the
-                velocity, \( R \) is the resources collected, \( \alpha \) is
-                the acceleration, \( \omega \) is the angular velocity, \(
-                a,b,c,d \) are non-negative numbers that can adjust the relative
-                importance of these components.
+                <b>Motion Planning</b> For motion planning, a model predictive
+                control algorithm is used. Trajectory are obtaind by solving a
+                constrained optimization problem with the IPOPT solver. The
+                objective function and constraints make use of information
+                provided by localization and perception. (Also see
+                <a href="https://github.com/WilliamHangXu/VehicleSim">this</a>
+                for a simplified version I implemented as an extension to a
+                programming assignment)
               </p>
             </div>
           </div>
